@@ -21,9 +21,9 @@ plotTour <- function(mapPlot, cities, start_city){
           geom_path(data=cityList[names(path), ], aes(group=NULL)))
 }}
 
-p <- ggplot(t, aes(x=long, y=lat, group=group, fill=group))+geom_polygon()+theme_few()+coord_quickmap()+guides(fill=FALSE)#+theme(aspect.ratio=1)
+p <- ggplot(t, aes(x=long, y=lat, group=group))+geom_path()+theme_few()+coord_quickmap()+guides(fill=FALSE)#+theme(aspect.ratio=1)
 
-pshinyServer(function(input, output) {
+shinyServer(function(input, output) {
   
   output$start <- renderUI(selectInput(inputId = "start", label = "Where to start?", choices = input$cities))
   
