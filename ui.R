@@ -24,7 +24,7 @@ shinyUI(fluidPage(theme="bootstrap.css",
 
     # Show a plot of the generated distribution
     mainPanel(
-      plotOutput("plot", width=800)
+      plotOutput("plot", width="1000px", height="1000px")
       #renderPrint("print"),
       #renderPrint("print2")
      
