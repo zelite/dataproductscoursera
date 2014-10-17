@@ -3,3 +3,5 @@
 .RData
 coursera.Rproj
 shinyapps
+tsp.Rproj
+.gitignore
