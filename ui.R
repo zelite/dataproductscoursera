@@ -28,8 +28,9 @@ shinyUI(fluidPage(theme="bootstrap.css",
       h1("Details"),
       p("The list of cities are the ones available on the dataset", code("eurodist"), "which is a default dataset from R.
         The shortest path is calculated with the package TSP, which is a solver for the", 
-        a("Travelling salesman problem", href="http://en.wikipedia.org/wiki/Travelling_salesman_problem", target="_blank"), ".")
-    ),
+        a("Travelling salesman problem", href="http://en.wikipedia.org/wiki/Travelling_salesman_problem", target="_blank"), "."),
+      br(),
+      p("Find the code for this app in", a("Github.", href="https://github.com/zelite/dataproductscoursera", target="_blank"))),
 
    
     mainPanel(
