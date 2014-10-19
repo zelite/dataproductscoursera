@@ -25,7 +25,9 @@ plotTour <- function(mapPlot, cities, start_city){
   print(mapPlot+geom_point(data=cityList, aes(group=NULL), size=2, color=colors[1])+
           #geom_path(data=cityList[names(path), ], aes(group=NULL), size=1.5, arrow=arrow()))
           geom_point(data=cityList[names(path), ], aes(group=NULL), size=4, color=colors[3])+
-          geom_segment(data=cityList[names(path), ], aes(xend=c(tail(long, n=-1), NA), yend=c(tail(lat, n=-1), NA), group=NULL), 
+          geom_point(data=cityList[names(path)[1], ], aes(group=NULL), size=5, color=colors[4])+
+          geom_segment(data=cityList[names(path), ], aes(xend=c(tail(long, n=-1), head(long, n=1)), 
+                                                         yend=c(tail(lat, n=-1), head(lat, n=1)), group=NULL), 
                        arrow=arrow(), size=1, colour=colors[2])+
           geom_text(data=cityList[names(path), ], aes(label=CityName, group=NULL), hjust=0.5, vjust=1), size=0.5)
   
@@ -41,7 +43,7 @@ shinyServer(function(input, output) {
   
   output$plot <- renderPlot(if (is.null(input$cities) | is.null(input$start))
                                 return()
-                            else suppressWarnings(plotTour(p, input$cities, input$start)))
+                            else plotTour(p, input$cities, input$start))
 
   
   
